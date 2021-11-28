@@ -112,6 +112,14 @@
       "projectType": "library",
       "root": "projects/dynamic-form-builder",
       "sourceRoot": "projects/dynamic-form-builder/src",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
       "prefix": "lib",
       "architect": {
         "build": {

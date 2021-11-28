@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'lib-text-area',
   templateUrl: './text-area.component.html',
-  styleUrls: ['./text-area.component.css']
+  styleUrls: ['./text-area.component.scss']
 })
 export class TextAreaComponent implements OnInit {
 
