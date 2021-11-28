@@ -1,1 +1,10 @@
-<p>input works!</p>
+<mat-form-field>
+  <mat-label *ngIf="to.label">{{ to.label }}</mat-label>
+  <input
+    matInput
+    [placeholder]="to.placeholder ? to.placeholder : ''"
+    [tabindex]="to.tabindex ? to.tabindex : -1"
+    [type]="to.type ? to.type : 'text'"
+  />
+  <mat-hint *ngIf="to.hint">{{ to.hint }}</mat-hint>
+</mat-form-field>

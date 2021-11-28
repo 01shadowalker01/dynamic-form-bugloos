@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { FormField } from "../../../models/form-field";
 
 @Component({
-  selector: 'lib-input',
-  templateUrl: './input.component.html',
-  styleUrls: ['./input.component.scss']
+  selector: "lib-input",
+  templateUrl: "./input.component.html",
+  styleUrls: ["./input.component.scss"],
 })
-export class InputComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+export class InputComponent extends FormField implements OnInit {
+  constructor() {
+    super();
   }
 
+  ngOnInit(): void {}
 }

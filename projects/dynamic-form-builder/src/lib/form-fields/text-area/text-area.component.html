@@ -1,1 +1,12 @@
-<p>text-area works!</p>
+<mat-form-field>
+  <mat-label>{{ to.label }}</mat-label>
+  <textarea
+    matInput
+    [placeholder]="to.placeholder ? to.placeholder : ''"
+    [tabindex]="to.tabindex ? to.tabindex : -1"
+    [type]="to.type ? to.type : 'text'"
+    [rows]="to.rows ? to.rows: 5"
+    [cols]="to.cols ? to.cols: 20"
+  ></textarea>
+  <mat-hint>{{ to.hint }}</mat-hint>
+</mat-form-field>
