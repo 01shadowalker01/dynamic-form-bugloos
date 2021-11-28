@@ -1,21 +1,6 @@
-<ng-container *ngIf="formConfig.fields; else fieldList">
-  <ng-container
-    [ngTemplateOutlet]="fieldsTemplate"
-    [ngTemplateOutletContext]="fields: formConfig.fields"
-  ></ng-container>
-</ng-container>
-<ng-template #fieldList>
-  <ng-container
-    [ngTemplateOutlet]="fieldsTemplate"
-    [ngTemplateOutletContext]="fields: formConfig"
-  ></ng-container>
-</ng-template>
-
-<ng-template #fieldsTemplate let-fields>
-  <ng-container *ngFor="let field of fields">
-    <ng-container [ngSwitch]="field.type">
-      <lib-input *ngSwitchCase="'input'"></lib-input>
-      <lib-text-area *ngSwitchCase="'textarea'"></lib-text-area>
-    </ng-container>
+<ng-container *ngFor="let field of formConfig.fields">
+  <ng-container [ngSwitch]="field.type">
+    <lib-input *ngSwitchCase="'input'"></lib-input>
+    <lib-text-area *ngSwitchCase="'textarea'"></lib-text-area>
   </ng-container>
-</ng-template>
+</ng-container>

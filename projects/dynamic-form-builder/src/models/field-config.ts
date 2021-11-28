@@ -7,5 +7,5 @@ export interface FieldConfig {
   defaultVaule?: any;
   templateOptions?: TemplateOptions
   isRequired?: boolean;
-  formatter: () => string;
+  formatter?: () => string;
 }

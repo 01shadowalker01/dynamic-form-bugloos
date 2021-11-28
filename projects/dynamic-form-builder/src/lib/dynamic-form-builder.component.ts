@@ -1,14 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FieldConfig } from '../models/field-config';
-import { FormConfig } from '../models/form-config';
+import { Component, Input, OnInit } from "@angular/core";
+import { FormConfig } from "../models/form-config";
 
 @Component({
-  selector: 'lib-dynamic-form-builder',
-  template: ` <p>dynamic-form-builder works!</p> `,
+  selector: "lib-dynamic-form-builder",
+  templateUrl: "./dynamic-form-builder.component.html",
   styles: [],
 })
 export class DynamicFormBuilderComponent implements OnInit {
-  @Input() formConfig!: FormConfig | FieldConfig[];
+  @Input() formConfig!: FormConfig;
 
   constructor() {}
 
