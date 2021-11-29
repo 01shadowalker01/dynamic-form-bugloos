@@ -4,7 +4,7 @@ import { FormConfig } from "../models/form-config";
 @Component({
   selector: "lib-dynamic-form-builder",
   templateUrl: "./dynamic-form-builder.component.html",
-  styles: [],
+  styleUrls: ["./dynamic-form-builder.component.scss"],
 })
 export class DynamicFormBuilderComponent implements OnInit {
   @Input() formConfig!: FormConfig;

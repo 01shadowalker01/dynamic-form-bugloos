@@ -8,11 +8,13 @@ import { FormConfig } from 'projects/dynamic-form-builder';
 })
 export class ComponentListComponent implements OnInit {
   formConfig: FormConfig = {
+    fieldGroupClassName: "flex-container",
     fields: [
       {
         key: "input",
         type: "input",
         templateOptions: {
+          className: "flex-45 padding-10",
           label: "label",
           placeholder: "placeholder",
           hint: "Hey!",
@@ -22,6 +24,7 @@ export class ComponentListComponent implements OnInit {
         key: "number",
         type: "input",
         templateOptions: {
+          className: "flex-45 padding-10",
           label: "label",
           placeholder: "placeholder",
           hint: "Hey!",
@@ -32,6 +35,7 @@ export class ComponentListComponent implements OnInit {
         key: "textarea",
         type: "textarea",
         templateOptions: {
+          className: "flex-90 padding-10",
           label: "label",
           placeholder: "placeholder",
           hint: "Hey!",
