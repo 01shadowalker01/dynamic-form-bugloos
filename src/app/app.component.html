@@ -1,1 +1,20 @@
-<lib-dynamic-form-builder [formConfig]="formConfig"></lib-dynamic-form-builder>
+<mat-toolbar color="primary">
+  <h1>Dynamic form builder</h1>
+</mat-toolbar>
+<mat-sidenav-container class="container">
+  <mat-sidenav mode="side" opened>
+    <mat-nav-list role="list">
+      <mat-list-item
+        role="listitem"
+        *ngFor="let item of navList"
+        [routerLink]="item.route"
+        routerLinkActive="is-active"
+      >
+        {{item.title}}
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
