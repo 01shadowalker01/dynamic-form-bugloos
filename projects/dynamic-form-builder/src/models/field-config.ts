@@ -1,3 +1,4 @@
+import { KeyValue } from "@angular/common";
 import { TemplateOptions } from "./template-options";
 
 export interface FieldConfig {
@@ -5,7 +6,8 @@ export interface FieldConfig {
   key: string;
   type: string;
   defaultVaule?: any;
-  templateOptions?: TemplateOptions
+  templateOptions?: TemplateOptions;
   isRequired?: boolean;
   formatter?: () => string;
+  options?: KeyValue<string | number, any>[];
 }

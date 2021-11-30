@@ -15,7 +15,7 @@ export class ComponentListComponent implements OnInit {
         type: "input",
         templateOptions: {
           className: "flex-45 padding-10",
-          label: "label",
+          label: "Text input",
           placeholder: "placeholder",
           hint: "Hey!",
         }
@@ -25,7 +25,7 @@ export class ComponentListComponent implements OnInit {
         type: "input",
         templateOptions: {
           className: "flex-45 padding-10",
-          label: "label",
+          label: "Number input",
           placeholder: "placeholder",
           hint: "Hey!",
           type: "number"
@@ -36,7 +36,7 @@ export class ComponentListComponent implements OnInit {
         type: "textarea",
         templateOptions: {
           className: "flex-90 padding-10",
-          label: "label",
+          label: "Text area",
           placeholder: "placeholder",
           hint: "Hey!",
           rows: 3,
@@ -48,7 +48,7 @@ export class ComponentListComponent implements OnInit {
         type: "date-picker",
         templateOptions: {
           className: "flex-45 padding-10",
-          label: "label",
+          label: "Date Picker",
           placeholder: "placeholder",
           hint: "Hey!",
         }
@@ -58,10 +58,24 @@ export class ComponentListComponent implements OnInit {
         type: "date-range",
         templateOptions: {
           className: "flex-45 padding-10",
-          label: "label",
-          placeholder: "placeholder",
+          label: "Date Range",
           hint: "Hey!",
         }
+      },
+      {
+        key: "select",
+        type: "select",
+        templateOptions: {
+          className: "flex-45 padding-10",
+          label: "Select item",
+          placeholder: "placeholder",
+          hint: "Hey!",
+        },
+        options: [
+          {key: 1, value: "First"},
+          {key: 2, value: "Second"},
+          {key: 3, value: "Third"},
+        ]
       },
     ],
   };
