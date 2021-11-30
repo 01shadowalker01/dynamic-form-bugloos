@@ -10,6 +10,14 @@
         *ngSwitchCase="'textarea'"
         [config]="field"
       ></lib-text-area>
+      <lib-date-picker
+        *ngSwitchCase="'date-picker'"
+        [config]="field"
+      ></lib-date-picker>
+      <lib-date-range
+        *ngSwitchCase="'date-range'"
+        [config]="field"
+      ></lib-date-range>
     </div>
   </ng-container>
 </div>

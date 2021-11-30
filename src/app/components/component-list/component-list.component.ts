@@ -43,6 +43,26 @@ export class ComponentListComponent implements OnInit {
           cols: 20
         }
       },
+      {
+        key: "date-picker",
+        type: "date-picker",
+        templateOptions: {
+          className: "flex-45 padding-10",
+          label: "label",
+          placeholder: "placeholder",
+          hint: "Hey!",
+        }
+      },
+      {
+        key: "date-range",
+        type: "date-range",
+        templateOptions: {
+          className: "flex-45 padding-10",
+          label: "label",
+          placeholder: "placeholder",
+          hint: "Hey!",
+        }
+      },
     ],
   };
 

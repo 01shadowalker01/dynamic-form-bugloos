@@ -1,0 +1,10 @@
+<mat-form-field>
+  <mat-label *ngIf="to.label">{{ to.label }}</mat-label>
+  <mat-date-range-input [rangePicker]="picker">
+    <input matStartDate />
+    <input matEndDate />
+  </mat-date-range-input>
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-date-range-picker #picker></mat-date-range-picker>
+  <mat-hint *ngIf="to.hint">{{ to.hint }}</mat-hint>
+</mat-form-field>
