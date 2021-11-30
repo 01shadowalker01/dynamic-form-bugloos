@@ -77,6 +77,21 @@ export class ComponentListComponent implements OnInit {
           {key: 3, value: "Third"},
         ]
       },
+      {
+        key: "radio",
+        type: "radio",
+        templateOptions: {
+          className: "flex-45 padding-10",
+          label: "Radio group",
+          placeholder: "placeholder",
+          hint: "Hey!",
+        },
+        options: [
+          {key: 1, value: "First"},
+          {key: 2, value: "Second"},
+          {key: 3, value: "Third"},
+        ]
+      },
     ],
   };
 

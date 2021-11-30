@@ -1,0 +1,12 @@
+<div class="wrapper">
+  <mat-label *ngIf="to.label">{{ to.label }}</mat-label>
+  <mat-radio-group>
+    <mat-radio-button
+      *ngFor="let option of config.options"
+      [value]="option.key"
+    >
+      {{ option.value }}</mat-radio-button
+    >
+  </mat-radio-group>
+  <mat-hint *ngIf="to.hint">{{ to.hint }}</mat-hint>
+</div>

@@ -4,4 +4,5 @@ export const VALID_FIELDS: string[] = [
   "date-picker",
   "date-range",
   "select",
+  "radio",
 ]
