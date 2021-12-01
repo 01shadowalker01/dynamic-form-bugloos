@@ -5,6 +5,7 @@ import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatNativeDateModule } from "@angular/material/core";
 import { MatSelectModule } from "@angular/material/select";
 import { MatRadioModule } from "@angular/material/radio";
+import { MatCheckboxModule } from "@angular/material/checkbox";
 
 import { DynamicFormBuilderComponent } from "./dynamic-form-builder.component";
 import { InputComponent } from "./form-fields/input/input.component";
@@ -13,6 +14,7 @@ import { DatePickerComponent } from "./form-fields/date-picker/date-picker.compo
 import { DateRangeComponent } from "./form-fields/date-range/date-range.component";
 import { SelectComponent } from "./form-fields/select/select.component";
 import { RadioComponent } from './form-fields/radio/radio.component';
+import { CheckboxComponent } from './form-fields/checkbox/checkbox.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { RadioComponent } from './form-fields/radio/radio.component';
     DateRangeComponent,
     SelectComponent,
     RadioComponent,
+    CheckboxComponent,
   ],
   imports: [
     CommonModule,
@@ -31,6 +34,7 @@ import { RadioComponent } from './form-fields/radio/radio.component';
     MatNativeDateModule,
     MatSelectModule,
     MatRadioModule,
+    MatCheckboxModule,
   ],
   exports: [DynamicFormBuilderComponent],
 })

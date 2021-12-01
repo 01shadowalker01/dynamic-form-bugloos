@@ -83,7 +83,20 @@ export class ComponentListComponent implements OnInit {
         templateOptions: {
           className: "flex-45 padding-10",
           label: "Radio group",
-          placeholder: "placeholder",
+          hint: "Hey!",
+        },
+        options: [
+          {key: 1, value: "First"},
+          {key: 2, value: "Second"},
+          {key: 3, value: "Third"},
+        ]
+      },
+      {
+        key: "checkbox",
+        type: "checkbox",
+        templateOptions: {
+          className: "flex-45 padding-10",
+          label: "Checkbox group",
           hint: "Hey!",
         },
         options: [

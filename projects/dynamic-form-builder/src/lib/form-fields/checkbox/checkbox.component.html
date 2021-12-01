@@ -1,0 +1,10 @@
+<section class="wrapper">
+  <mat-label *ngIf="to.label">{{ to.label }}</mat-label>
+  <div class="checkbox-list">
+    <mat-checkbox *ngFor="let option of config.options">
+      {{ option.value }}
+    </mat-checkbox>
+
+  </div>
+  <mat-hint *ngIf="to.hint">{{ to.hint }}</mat-hint>
+</section>

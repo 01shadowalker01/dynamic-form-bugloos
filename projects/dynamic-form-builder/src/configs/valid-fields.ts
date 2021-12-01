@@ -5,4 +5,5 @@ export const VALID_FIELDS: string[] = [
   "date-range",
   "select",
   "radio",
+  "checkbox",
 ]
