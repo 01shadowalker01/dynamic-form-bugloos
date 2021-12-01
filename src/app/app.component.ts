@@ -7,6 +7,7 @@ import { Component } from "@angular/core";
 })
 export class AppComponent {
   navList = [
-    {route: "/components", title: "Components"}
-  ]
+    { route: "/get-started", title: "Get Started" },
+    { route: "/components", title: "Components" },
+  ];
 }
