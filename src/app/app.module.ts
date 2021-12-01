@@ -9,6 +9,8 @@ import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ComponentListComponent } from "./components/component-list/component-list.component";
 import { AppRoutingModule } from "./app.routing";
+import { ReactiveFormsModule } from "@angular/forms";
+import { MatButtonModule } from "@angular/material/button";
 
 @NgModule({
   declarations: [AppComponent, ComponentListComponent],
@@ -16,10 +18,12 @@ import { AppRoutingModule } from "./app.routing";
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     DynamicFormBuilderModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatListModule
+    MatListModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

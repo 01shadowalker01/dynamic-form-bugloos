@@ -1,12 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { FormConfig } from 'projects/dynamic-form-builder';
+import { Component, OnInit } from "@angular/core";
+import { FormGroup } from "@angular/forms";
+import { FormConfig } from "projects/dynamic-form-builder";
 
 @Component({
-  selector: 'app-component-list',
-  templateUrl: './component-list.component.html',
-  styleUrls: ['./component-list.component.scss']
+  selector: "app-component-list",
+  templateUrl: "./component-list.component.html",
+  styleUrls: ["./component-list.component.scss"],
 })
 export class ComponentListComponent implements OnInit {
+  form = new FormGroup({});
+
   formConfig: FormConfig = {
     fieldGroupClassName: "flex-container",
     fields: [
@@ -18,7 +21,7 @@ export class ComponentListComponent implements OnInit {
           label: "Text input",
           placeholder: "placeholder",
           hint: "Hey!",
-        }
+        },
       },
       {
         key: "number",
@@ -28,8 +31,8 @@ export class ComponentListComponent implements OnInit {
           label: "Number input",
           placeholder: "placeholder",
           hint: "Hey!",
-          type: "number"
-        }
+          type: "number",
+        },
       },
       {
         key: "textarea",
@@ -40,8 +43,8 @@ export class ComponentListComponent implements OnInit {
           placeholder: "placeholder",
           hint: "Hey!",
           rows: 3,
-          cols: 20
-        }
+          cols: 20,
+        },
       },
       {
         key: "date-picker",
@@ -51,7 +54,7 @@ export class ComponentListComponent implements OnInit {
           label: "Date Picker",
           placeholder: "placeholder",
           hint: "Hey!",
-        }
+        },
       },
       {
         key: "date-range",
@@ -60,7 +63,7 @@ export class ComponentListComponent implements OnInit {
           className: "flex-45 padding-10",
           label: "Date Range",
           hint: "Hey!",
-        }
+        },
       },
       {
         key: "select",
@@ -72,10 +75,10 @@ export class ComponentListComponent implements OnInit {
           hint: "Hey!",
         },
         options: [
-          {key: 1, value: "First"},
-          {key: 2, value: "Second"},
-          {key: 3, value: "Third"},
-        ]
+          { key: 1, value: "First" },
+          { key: 2, value: "Second" },
+          { key: 3, value: "Third" },
+        ],
       },
       {
         key: "radio",
@@ -86,10 +89,10 @@ export class ComponentListComponent implements OnInit {
           hint: "Hey!",
         },
         options: [
-          {key: 1, value: "First"},
-          {key: 2, value: "Second"},
-          {key: 3, value: "Third"},
-        ]
+          { key: 1, value: "First" },
+          { key: 2, value: "Second" },
+          { key: 3, value: "Third" },
+        ],
       },
       {
         key: "checkbox",
@@ -100,17 +103,19 @@ export class ComponentListComponent implements OnInit {
           hint: "Hey!",
         },
         options: [
-          {key: 1, value: "First"},
-          {key: 2, value: "Second"},
-          {key: 3, value: "Third"},
-        ]
+          { key: 1, value: "First" },
+          { key: 2, value: "Second" },
+          { key: 3, value: "Third" },
+        ],
       },
     ],
   };
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  onSubmit() {
+
   }
-
 }
