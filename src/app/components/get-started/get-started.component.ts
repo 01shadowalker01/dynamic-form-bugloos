@@ -17,6 +17,7 @@ export class GetStartedComponent implements OnInit {
       {
         key: "input",
         type: "input",
+        isRequired: true,
         templateOptions: {
           className: "flex-45 padding-10",
           label: "Text input",
@@ -30,10 +31,11 @@ export class GetStartedComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.form.valueChanges.subscribe(console.log)
   }
 
   onSubmit() {
-
+    console.log(this.form.value);
   }
 
 }
