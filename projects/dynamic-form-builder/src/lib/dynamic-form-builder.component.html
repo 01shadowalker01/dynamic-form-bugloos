@@ -1,34 +1,44 @@
-<div [class]="formConfig.fieldGroupClassName">
+<div [class]="formConfig.fieldGroupClassName" [formGroup]="form">
   <ng-container *ngFor="let field of formConfig.fields">
     <div
       [ngSwitch]="field.type"
       [class]="field.templateOptions?.className"
       class="field"
     >
-      <lib-input *ngSwitchCase="'input'" [config]="field"></lib-input>
+      <lib-input
+        *ngSwitchCase="'input'"
+        [config]="field"
+        [formControlName]="field.key"
+      ></lib-input>
       <lib-text-area
         *ngSwitchCase="'textarea'"
         [config]="field"
+        [formControlName]="field.key"
       ></lib-text-area>
       <lib-date-picker
         *ngSwitchCase="'date-picker'"
         [config]="field"
+        [formControlName]="field.key"
       ></lib-date-picker>
       <lib-date-range
         *ngSwitchCase="'date-range'"
         [config]="field"
+        [formControlName]="field.key"
       ></lib-date-range>
       <lib-select
         *ngSwitchCase="'select'"
         [config]="field"
+        [formControlName]="field.key"
       ></lib-select>
       <lib-radio
         *ngSwitchCase="'radio'"
         [config]="field"
+        [formControlName]="field.key"
       ></lib-radio>
       <lib-checkbox
         *ngSwitchCase="'checkbox'"
         [config]="field"
+        [formControlName]="field.key"
       ></lib-checkbox>
     </div>
   </ng-container>

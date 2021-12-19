@@ -1,9 +1,10 @@
-<h3>Components</h3>
-<form (ngSubmit)="onSubmit()" [formGroup]="form">
+<h3>Get Started!</h3>
+<form (ngSubmit)="onSubmit()">
   <lib-dynamic-form-builder
     [form]="form"
+    [model]="model"
     [formConfig]="formConfig"
   ></lib-dynamic-form-builder>
-  <button mat-raised-button type="submit" color="primary">submit</button>
+  <button mat-raised-button type="submit" color="primary" [disabled]="form.invalid">submit</button>
   <button mat-raised-button type="reset" color="warn">reset</button>
 </form>

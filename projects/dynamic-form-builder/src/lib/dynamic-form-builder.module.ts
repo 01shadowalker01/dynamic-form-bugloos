@@ -15,6 +15,7 @@ import { DateRangeComponent } from "./form-fields/date-range/date-range.componen
 import { SelectComponent } from "./form-fields/select/select.component";
 import { RadioComponent } from './form-fields/radio/radio.component';
 import { CheckboxComponent } from './form-fields/checkbox/checkbox.component';
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -29,6 +30,8 @@ import { CheckboxComponent } from './form-fields/checkbox/checkbox.component';
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
+
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
