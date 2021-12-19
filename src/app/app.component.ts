@@ -6,8 +6,17 @@ import { Component } from "@angular/core";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  navList = [
-    { route: "/get-started", title: "Get Started" },
-    { route: "/components", title: "Components" },
+  navGroupList = [
+    {
+      title: "Form fields",
+      navList: [
+        { route: "/get-started", title: "Get Started" },
+        { route: "/components", title: "Components" },
+      ],
+    },
+    {
+      title: "Form management",
+      navList: [],
+    },
   ];
 }

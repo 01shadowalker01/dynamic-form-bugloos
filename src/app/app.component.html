@@ -4,14 +4,17 @@
 <mat-sidenav-container class="container">
   <mat-sidenav mode="side" opened>
     <mat-nav-list role="list">
-      <mat-list-item
-        role="listitem"
-        *ngFor="let item of navList"
-        [routerLink]="item.route"
-        routerLinkActive="is-active"
-      >
-        {{ item.title }}
-      </mat-list-item>
+      <ng-container *ngFor="let navGroup of navGroupList">
+        <h4 class="nav-group-title">{{ navGroup.title }}</h4>
+        <mat-list-item
+          role="listitem"
+          *ngFor="let navItem of navGroup.navList"
+          [routerLink]="navItem.route"
+          routerLinkActive="is-active"
+        >
+          {{ navItem.title }}
+        </mat-list-item>
+      </ng-container>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
