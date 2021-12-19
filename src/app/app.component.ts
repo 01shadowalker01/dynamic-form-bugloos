@@ -16,7 +16,9 @@ export class AppComponent {
     },
     {
       title: "Form management",
-      navList: [],
+      navList: [
+        { route: "/field-crud", title: "Field CRUD" },
+      ],
     },
   ];
 }
