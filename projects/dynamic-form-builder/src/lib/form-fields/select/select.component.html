@@ -1,10 +1,7 @@
 <mat-form-field>
   <mat-label *ngIf="to.label">{{ to.label }}</mat-label>
-  <mat-select>
-    <mat-option
-      *ngFor="let option of config.options"
-      [value]="option.key"
-    >
+  <mat-select #field (selectionChange)="onValueChange(field.value)">
+    <mat-option *ngFor="let option of config.options" [value]="option.key">
       {{ option.value }}
     </mat-option>
   </mat-select>

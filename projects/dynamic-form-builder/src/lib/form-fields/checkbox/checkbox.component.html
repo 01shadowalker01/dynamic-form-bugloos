@@ -1,10 +1,13 @@
 <section class="wrapper">
   <mat-label *ngIf="to.label">{{ to.label }}</mat-label>
   <div class="checkbox-list">
-    <mat-checkbox *ngFor="let option of config.options">
+    <mat-checkbox
+      #field
+      *ngFor="let option of config.options"
+      (change)="onValueChange({ key: option.key, checked: field.checked })"
+    >
       {{ option.value }}
     </mat-checkbox>
-
   </div>
   <mat-hint *ngIf="to.hint">{{ to.hint }}</mat-hint>
 </section>
