@@ -7,12 +7,20 @@ import { FieldConfig } from "./field-config";
 export class FormField implements ControlValueAccessor {
   @Input() config!: FieldConfig;
 
-  protected value: any;
+  protected _value: any;
   protected _onChange!: (value: any) => void;
   protected _onTouched!: () => void;
 
   public get to(): TemplateOptions {
     return this.config.templateOptions || {};
+  }
+
+  public get value(): any {
+    return this._value;
+  }
+
+  public set value(v: any) {
+    this._value = v;
   }
 
   writeValue(value: any) {
@@ -28,8 +36,10 @@ export class FormField implements ControlValueAccessor {
   }
 
   onValueChange(value: any) {
-    this.value = value;
-    this._onChange(value);
-    this._onTouched();
+    if (this.value !== value) {
+      this.value = value;
+      this._onChange(value);
+      this._onTouched();
+    }
   }
 }

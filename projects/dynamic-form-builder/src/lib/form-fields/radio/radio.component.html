@@ -2,8 +2,10 @@
   <mat-label *ngIf="to.label">{{ to.label }}</mat-label>
   <mat-radio-group>
     <mat-radio-button
+      #field
       *ngFor="let option of config.options"
       [value]="option.key"
+      (change)="onValueChange(field.value)"
     >
       {{ option.value }}</mat-radio-button
     >
