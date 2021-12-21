@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { FormConfig } from 'projects/dynamic-form-builder';
+import { Component, OnInit } from "@angular/core";
+import { FormGroup } from "@angular/forms";
+import { FormConfig, FormManagerService } from "projects/dynamic-form-builder";
 
 @Component({
-  selector: 'app-field-crud-example',
-  templateUrl: './field-crud-example.component.html',
-  styleUrls: ['./field-crud-example.component.scss']
+  selector: "app-field-crud-example",
+  templateUrl: "./field-crud-example.component.html",
+  styleUrls: ["./field-crud-example.component.scss"],
 })
 export class FieldCrudExampleComponent implements OnInit {
   form = new FormGroup({});
@@ -111,9 +111,11 @@ export class FieldCrudExampleComponent implements OnInit {
     ],
   };
 
-  constructor() { }
+  constructor(private formManagerSrvc: FormManagerService) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  onDeleteFieldsBegin() {
+    this.formManagerSrvc.startDeleteProcess();
   }
-
 }
