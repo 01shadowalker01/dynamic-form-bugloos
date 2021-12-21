@@ -1,0 +1,24 @@
+<article>
+  <h3>Field CRUD example</h3>
+
+  <section class="btn-wrapper">
+    <button mat-stroked-button color="primary" (click)="onOpenNewFieldDialog()">
+      <mat-icon>add</mat-icon>
+      Add new field
+    </button>
+    <button mat-stroked-button color="warn" (click)="onDeleteFieldsBegin()">
+      <mat-icon>delete</mat-icon>
+      Delete field(s)
+    </button>
+  </section>
+
+  <section>
+    <lib-form-manager
+      [form]="form"
+      [formConfig]="formConfig"
+    ></lib-form-manager>
+  </section>
+
+  <h4>Form value:</h4>
+  {{ form.value | json }}
+</article>

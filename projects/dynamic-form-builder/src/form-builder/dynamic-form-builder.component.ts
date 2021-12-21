@@ -1,12 +1,15 @@
 import {
   Component,
+  ElementRef,
   Input,
   OnChanges,
   OnInit,
+  QueryList,
   SimpleChanges,
+  ViewChild,
+  ViewChildren,
 } from "@angular/core";
 import {
-  FormBuilder,
   FormControl,
   FormGroup,
   ValidatorFn,
@@ -25,7 +28,17 @@ export class DynamicFormBuilderComponent implements OnInit, OnChanges {
   @Input() model: any;
   @Input() formConfig!: FormConfig;
 
-  constructor(private formBuilder: FormBuilder) {}
+  @ViewChildren("field") private _fieldListRef!: QueryList<ElementRef>;
+  @ViewChild("fieldsWrapper")
+  private _fieldsWrapperRef!: ElementRef<HTMLElement>;
+
+  public get fieldListRef(): QueryList<ElementRef> {
+    return this._fieldListRef;
+  }
+
+  public get fieldsWrapperRef(): ElementRef<HTMLElement> {
+    return this._fieldsWrapperRef;
+  }
 
   ngOnInit(): void {
     this.form.valueChanges.subscribe(console.log);
@@ -38,9 +51,8 @@ export class DynamicFormBuilderComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if (changes["formConfig"]) {
       this.checkConfigForValidation(this.formConfig);
-    }
-    if (changes["form"] && changes["form"].firstChange)
       this.initFormControl(this.formConfig);
+    }
   }
 
   initFormControl(config: FormConfig) {

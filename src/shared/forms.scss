@@ -2,12 +2,8 @@ formly-field-mat-select {
   width: 100%;
 }
 
-mat-radio-button {
+mat-radio-button:not(:first-of-type) {
   margin-left: 1.5rem;
-}
-
-.mat-form-field-wrapper {
-  padding-bottom: 1rem;
 }
 
 .flex-container {

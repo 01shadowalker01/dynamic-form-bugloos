@@ -1,0 +1,13 @@
+.buttons-wrapper {
+  display: flex;
+  align-items: center;
+  font-size: 0.85rem;
+
+  p {
+    margin: 0;
+  }
+
+  button {
+    font-size: inherit;
+  }
+}
