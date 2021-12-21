@@ -1,0 +1,53 @@
+<article>
+  <h3>Field properties:</h3>
+  <form class="flex-tow-col" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>Field key</mat-label>
+      <input matInput formControlName="key" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Field type</mat-label>
+      <mat-select formControlName="type">
+        <mat-option *ngFor="let field of fieldList" [value]="field">
+          {{ field }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-checkbox formControlName="isRequired">Is required?</mat-checkbox>
+
+    <section
+      class="flex-tow-col template-options"
+      formGroupName="templateOptions"
+    >
+      <h4>Template options:</h4>
+
+      <mat-form-field>
+        <mat-label>Label</mat-label>
+        <input matInput formControlName="label" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>class name</mat-label>
+        <input matInput formControlName="className" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Placeholder</mat-label>
+        <input matInput formControlName="placeholder" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Hint</mat-label>
+        <input matInput formControlName="hint" />
+      </mat-form-field>
+      <div></div>
+    </section>
+
+    <button
+      type="submit"
+      mat-raised-button
+      color="primary"
+      [disabled]="form.invalid"
+    >
+      <mat-icon>add</mat-icon>
+      Add field
+    </button>
+  </form>
+</article>

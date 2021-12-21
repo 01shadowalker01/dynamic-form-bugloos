@@ -1,7 +1,23 @@
 @use '~@angular/material' as mat;
 
 .container {
-  height: 100%;
+  min-height: 100%;
+
+  .nav-group-title {
+    display: flex;
+    margin: 1vh 1vw;
+    font-size: 0.9rem;
+
+    &::after {
+      content: "";
+      border-bottom: 1px solid #424242;
+      display: inline-flex;
+      flex-grow: 100;
+      margin-left: 4px;
+      height: 8px;
+    }
+  }
+
   mat-list-item {
     padding: 0 5vw 0 1vw;
     &.is-active {
@@ -9,9 +25,15 @@
       color: mat.get-color-from-palette(mat.$indigo-palette, 500);
     }
   }
-
 }
 
+mat-sidenav {
+  width: 17%;
+
+  h4 {
+    font-weight: 600;
+  }
+}
 mat-sidenav-content {
   padding: 8px;
 }

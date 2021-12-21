@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { FormConfig } from 'projects/dynamic-form-builder';
+import { FormConfig, VALID_FIELDS } from 'projects/dynamic-form-builder';
 
 @Component({
   selector: 'app-get-started',
@@ -10,6 +10,7 @@ import { FormConfig } from 'projects/dynamic-form-builder';
 export class GetStartedComponent implements OnInit {
   form = new FormGroup({});
   model = {}
+  fieldList = VALID_FIELDS;
 
   formConfig: FormConfig = {
     fieldGroupClassName: "flex-container",

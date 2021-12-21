@@ -1,10 +1,51 @@
 <h3>Get Started!</h3>
+<p>
+  The most simple form you can build with <code>Dynamic form builder</code> is
+  shown here:
+</p>
 <form (ngSubmit)="onSubmit()">
   <lib-dynamic-form-builder
     [form]="form"
     [model]="model"
     [formConfig]="formConfig"
   ></lib-dynamic-form-builder>
-  <button mat-raised-button type="submit" color="primary" [disabled]="form.invalid">submit</button>
+  <button
+    mat-raised-button
+    type="submit"
+    color="primary"
+    [disabled]="form.invalid"
+  >
+    submit
+  </button>
   <button mat-raised-button type="reset" color="warn">reset</button>
 </form>
+<h4>Form value:</h4>
+{{ form.value | json }}
+
+<hr />
+<h3><Fieldset></Fieldset></h3>
+<p>
+  In <code>Dynamic form builder</code>, forms are constructed with
+  <code>fields</code>.
+</p>
+<p>
+  Every <code>field</code> must have two properties: <code>key</code> and code
+  <code>type</code>.
+</p>
+<p>
+  <code>key</code> is used to retrive value from form later. You should be aware
+  that the <code>key</code> should be <i><strong>unique</strong></i> for each
+  <code>field</code>.
+</p>
+<p>
+  In the other hand, <code>type</code> should be one of the following values:
+</p>
+<ul>
+  <li *ngFor="let field of fieldList">
+    <code>{{ field }}</code>
+  </li>
+</ul>
+<p>
+  Also you can set some optional values like <code>label</code>,
+  <code>placeholder</code>, <code>hint</code> and etc (See <code>TemplateOptions</code> interface for more).
+</p>
