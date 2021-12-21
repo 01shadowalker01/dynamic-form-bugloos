@@ -6,4 +6,6 @@ export * from "./src/models/form-config";
 export * from "./src/models/form-field";
 export * from "./src/models/template-options";
 
+export * from "./src/configs/valid-fields";
+
 export * from "./src/form-manager";

@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup } from "@angular/forms";
-import { FormConfig, FormManagerService } from "projects/dynamic-form-builder";
+import { MatDialog } from "@angular/material/dialog";
+import { FieldConfig, FormConfig, FormManagerService } from "projects/dynamic-form-builder";
+import { NewFieldDialogComponent } from "../new-field-dialog/new-field-dialog.component";
 
 @Component({
   selector: "app-field-crud-example",
@@ -111,11 +113,24 @@ export class FieldCrudExampleComponent implements OnInit {
     ],
   };
 
-  constructor(private formManagerSrvc: FormManagerService) {}
+  constructor(
+    private formManagerSrvc: FormManagerService,
+    private dialog: MatDialog,
+  ) {}
 
   ngOnInit(): void {}
 
   onDeleteFieldsBegin() {
     this.formManagerSrvc.startDeleteProcess();
+  }
+
+  onOpenNewFieldDialog() {
+    const dialogRef = this.dialog.open(NewFieldDialogComponent, {
+      minWidth: "50vw",
+      maxWidth: "60vw"
+    });
+    dialogRef.afterClosed().subscribe(
+      this.formManagerSrvc.addNewField.bind(this.formManagerSrvc)
+    );
   }
 }

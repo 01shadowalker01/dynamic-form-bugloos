@@ -1,0 +1,39 @@
+.flex-tow-col {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 3vw;
+
+  * {
+    flex: 40%;
+  }
+
+  .template-options {
+    flex: 100%;
+
+    h4 {
+      display: flex;
+      flex: 100%;
+
+      &::after {
+        content: "";
+        border-bottom: 1px solid #424242;
+        display: inline-flex;
+        flex-grow: 100;
+        margin-left: 8px;
+        height: 8px;
+      }
+    }
+  }
+
+  button[type="submit"] {
+    flex: unset;
+  }
+}
+
+
+h3,
+h4 {
+  font-weight: 500;
+}

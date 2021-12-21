@@ -18,6 +18,11 @@ import { MatButtonModule } from "@angular/material/button";
 import { GetStartedComponent } from "./components/get-started/get-started.component";
 import { FieldCrudExampleComponent } from "./form-management/field-crud-example/field-crud-example.component";
 import { NewFieldDialogComponent } from "./form-management/new-field-dialog/new-field-dialog.component";
+import { MatInputModule } from "@angular/material/input";
+import { MatSelectModule } from "@angular/material/select";
+import { MatDialog, MatDialogModule } from "@angular/material/dialog";
+import { MatCheckboxModule } from "@angular/material/checkbox";
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from "@angular/material/form-field";
 
 @NgModule({
   declarations: [
@@ -37,11 +42,21 @@ import { NewFieldDialogComponent } from "./form-management/new-field-dialog/new-
     MatListModule,
     MatButtonModule,
     MatIconModule,
+    MatInputModule,
+    MatSelectModule,
+    MatDialogModule,
+    MatCheckboxModule,
 
     DynamicFormBuilderModule,
     FormManagerModule,
   ],
-  providers: [],
+  providers: [
+    MatDialog,
+    {
+      provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
+      useValue: { appearance: "fill" },
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
