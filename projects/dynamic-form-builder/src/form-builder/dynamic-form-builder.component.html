@@ -1,6 +1,7 @@
-<div [class]="formConfig.fieldGroupClassName" [formGroup]="form">
+<div [class]="formConfig.fieldGroupClassName" [formGroup]="form" #fieldsWrapper>
   <ng-container *ngFor="let field of formConfig.fields">
     <div
+      #field
       [ngSwitch]="field.type"
       [class]="field.templateOptions?.className"
       class="field"
