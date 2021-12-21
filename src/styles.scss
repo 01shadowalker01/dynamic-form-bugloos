@@ -14,3 +14,14 @@ button.mat-raised-button {
   margin: 8px;
   font-size: 0.95rem;
 }
+
+h3, h4, strong {
+  font-weight: 500;
+}
+
+code {
+  padding: 2px 4px;
+  color: hsl(210,8%,15%);
+  background-color: hsl(210,8%,90%);
+  border-radius: 3px;
+}

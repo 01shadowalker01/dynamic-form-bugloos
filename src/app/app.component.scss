@@ -1,7 +1,7 @@
 @use '~@angular/material' as mat;
 
 .container {
-  height: 100%;
+  min-height: 100%;
 
   .nav-group-title {
     display: flex;
@@ -27,6 +27,13 @@
   }
 }
 
+mat-sidenav {
+  width: 17%;
+
+  h4 {
+    font-weight: 600;
+  }
+}
 mat-sidenav-content {
   padding: 8px;
 }

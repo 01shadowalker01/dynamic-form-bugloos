@@ -1,4 +1,10 @@
 <h3>Components</h3>
+
+<p>
+  Here is the list of all components you can add to your form in
+  <code>Dynamic form builder</code>:
+</p>
+
 <form (ngSubmit)="onSubmit()" [formGroup]="form">
   <lib-dynamic-form-builder
     [form]="form"
@@ -7,3 +13,5 @@
   <button mat-raised-button type="submit" color="primary">submit</button>
   <button mat-raised-button type="reset" color="warn">reset</button>
 </form>
+<h4>Form value:</h4>
+{{ form.value | json }}
