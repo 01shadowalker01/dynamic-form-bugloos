@@ -51,9 +51,8 @@ export class DynamicFormBuilderComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if (changes["formConfig"]) {
       this.checkConfigForValidation(this.formConfig);
-    }
-    if (changes["form"] && changes["form"].firstChange)
       this.initFormControl(this.formConfig);
+    }
   }
 
   initFormControl(config: FormConfig) {

@@ -7,16 +7,17 @@ import {
   EventEmitter,
   Injector,
   Input,
+  OnDestroy,
   OnInit,
   Output,
   Renderer2,
   ViewChild,
 } from "@angular/core";
 import { FormGroup } from "@angular/forms";
-import { of, Observable } from "rxjs";
-import { mergeAll } from "rxjs/operators";
+import { of, Observable, Subject } from "rxjs";
+import { mergeAll, takeUntil } from "rxjs/operators";
 
-import { FormConfig } from "projects/dynamic-form-builder";
+import { FieldConfig, FormConfig } from "projects/dynamic-form-builder";
 import { DynamicFormBuilderComponent } from "projects/dynamic-form-builder";
 import { FormManagerService } from "../../form-manager.service";
 import { DeleteButtonComponent } from "../delete-button/delete-button.component";
@@ -26,7 +27,7 @@ import { DeleteButtonComponent } from "../delete-button/delete-button.component"
   templateUrl: "./form-manager.component.html",
   styleUrls: ["./form-manager.component.scss"],
 })
-export class FormManagerComponent implements OnInit {
+export class FormManagerComponent implements OnInit, OnDestroy {
   @Input() form!: FormGroup;
   @Input() model: any;
   @Input() formConfig!: FormConfig;
@@ -39,6 +40,8 @@ export class FormManagerComponent implements OnInit {
   private deleteEvents$: Observable<ElementRef>[] = [];
   private deleteBtnRefList: { wrapper: ElementRef; btn: HTMLElement }[] = [];
 
+  private unsubscribe$ = new Subject();
+
   constructor(
     private renderer: Renderer2,
     private injector: Injector,
@@ -49,13 +52,22 @@ export class FormManagerComponent implements OnInit {
 
   ngOnInit(): void {
     this.listenToDeleteProcess();
+    this.listenToNewFieldCreation();
   }
 
   listenToDeleteProcess() {
-    this.formManagerSrvc.deleteProcess.subscribe(startProcess => {
-      if (startProcess) this.showDeleteBtns();
-      else this.removeDeleteBtns();
-    });
+    this.formManagerSrvc.deleteProcess
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(startProcess => {
+        if (startProcess) this.showDeleteBtns();
+        else this.removeDeleteBtns();
+      });
+  }
+
+  listenToNewFieldCreation() {
+    this.formManagerSrvc.newField
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(this.addNewField.bind(this));
   }
 
   private showDeleteBtns() {
@@ -96,9 +108,9 @@ export class FormManagerComponent implements OnInit {
 
   private handleDeleteEvent() {
     of(this.deleteEvents$)
-      .pipe(mergeAll())
+      .pipe(mergeAll(), takeUntil(this.unsubscribe$))
       .subscribe(observable =>
-        observable.subscribe(fieldRef => {
+        observable.pipe(takeUntil(this.unsubscribe$)).subscribe(fieldRef => {
           this.renderer.removeChild(
             this.formBuilderRef.fieldsWrapperRef.nativeElement,
             fieldRef.nativeElement,
@@ -107,11 +119,23 @@ export class FormManagerComponent implements OnInit {
       );
   }
 
+  private addNewField(newField: FieldConfig) {
+    this.formConfig = {
+      ...this.formConfig,
+      fields: [...this.formConfig.fields, newField],
+    };
+  }
+
   finalizeDeleteProcess() {
     this.formManagerSrvc.finishDeleteProcess();
   }
 
   onSubmit() {
     this.formSubmitted.emit(this.form.value);
+  }
+
+  ngOnDestroy() {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 }
